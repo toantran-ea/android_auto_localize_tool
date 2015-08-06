@@ -24,9 +24,7 @@ def load_strings_file():
 				ET.SubElement(translated_resources_root, tag="string", name=name).text = translated_text
 			except:
 				print "can not translate text " + child.text.encode('utf-8')
-	output_tree = ET.ElementTree(translated_resources_root)
-	output_tree.write("strings.xml.translated")
-	xmlstr = parseString(ET.tostring(root)).toprettyxml(indent="   ")
+	xmlstr = parseString(ET.tostring(translated_resources_root)).toprettyxml(indent="   ")
 	with open("a_strings.xml", "w") as f:
 		f.write(xmlstr.encode("UTF-8"))
 
